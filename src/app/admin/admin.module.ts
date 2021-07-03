@@ -7,10 +7,12 @@ import { EditComponent } from './edit/edit.component';
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { RouterModule } from '@angular/router';
 import { OrdersComponent } from './orders/orders.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
     imports: [
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forChild([
             {
                 path: '', component: AdminLayoutComponent, children: [
