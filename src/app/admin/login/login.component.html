@@ -12,7 +12,7 @@
         <label for="password">Password</label>
         <input id="password" type="password" formControlName="password">
         <div *ngIf="form.get('password').touched && form.get('password').invalid " class="validation">
-            <small *ngIf="form.get('password').errors.required">Enter Password</small>
+            <small *ngIf="form.get('password').errors.required">Enter password</small>
             <small *ngIf="form.get('password').errors.minlength">
                 Password must be at least {{ form.get('password').errors.minlength.requiredlength}} characters.
                 Now he {{form.get('password').errors?.minlength.actualLength}} actual length.
