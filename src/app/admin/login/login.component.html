@@ -5,7 +5,7 @@
         <input id="email" type="email" formControlName="email">
         <div *ngIf="form.get('email').touched && form.get('email').invalid " class="validation">
             <small *ngIf="form.get('email').errors.required">Enter Email</small>
-            <small *ngIf="form.get('email').errors.email">Enter valid Email</small>
+            <small *ngIf="form.get('email').errors.email">Enter valid email</small>
         </div>
     </div>
     <div class="form-control">
