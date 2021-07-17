@@ -12,15 +12,23 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
 addProduct(product){
-  return this.http.post('https://localhost:44306/api/Product/AddProducts', product)
+  return this.http.post('https://localhost:44306/api/Product', product)
 }
 
 getProducts()  {
-  return this.http.get('https://localhost:44306/api/Product/getProducts')
+  return this.http.get('https://localhost:44306/api/Product')
 }
 
 getProductById(id)  {
-  return this.http.get(`https://localhost:44306/api/Product/product/${id}`)
+  return this.http.get(`https://localhost:44306/api/Product/${id}`)
+}
+
+update(product){
+  this.http.patch('https://localhost:44306/api/Product/Update', product)
+}
+
+remove(id){
+  return this.http.delete(`https://localhost:44306/api/Product/${id}`)
 }
 
 }
