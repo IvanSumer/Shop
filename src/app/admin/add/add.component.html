@@ -1,1 +1,47 @@
-<p>add works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <h2 class="text-center">Add Products</h2>
+
+   
+    <div class="form-control">
+        <label for="productType">Type</label>
+        <select formControlName="productType">
+            <option value="phone">Phone</option>
+            <option value="tablet">Tablet</option>
+            <option value="laptop">Laptop</option>
+        </select>
+        <div *ngIf="form.get('productType').touched && form.get('productType').invalid" class="validation">
+            <small *ngIf="form.get('productType').errors.required">This field is required</small>
+        </div>
+    </div>
+    
+    <div class="form-control">
+        <label for="title">Title</label>
+        <input id="title" type="text" formControlName="title">
+        <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
+            <small *ngIf="form.get('title').errors.required">This field is required</small>
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label for="photo">Photo</label>
+        <quill-editor formControlName="photo"></quill-editor>
+    </div>
+    
+    <div class="form-control">
+        <label for="info">Info</label>
+        <quill-editor formControlName="info"></quill-editor>
+    </div>
+    
+    
+    <div class="form-control">
+        <label for="price">Price</label>
+        <input id="price" type="number" formControlName="price">
+        <div *ngIf="form.get('price').touched && form.get('price').invalid" class="validation">
+            <small *ngIf="form.get('price').errors.required">This field is required</small>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="!form.valid || submitted">
+        Save
+    </button>
+</form>

@@ -9,11 +9,13 @@ import { RouterModule } from '@angular/router';
 import { OrdersComponent } from './orders/orders.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from '../shared/auth.guard';
+import { QuillModule } from 'ngx-quill';
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        QuillModule.forRoot(),
         RouterModule.forChild([
             {
                 path: '', component: AdminLayoutComponent, children: [

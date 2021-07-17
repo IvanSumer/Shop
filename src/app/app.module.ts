@@ -7,7 +7,10 @@ import { MainLayoutComponent } from './shared/main-layout/main-layout.component'
 import { MainPageComponent } from './main-page/main-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { QuillModule } from 'ngx-quill';
+import { AuthInterceptor } from './shared/auth.interceptor';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +18,22 @@ import { HttpClientModule } from '@angular/common/http';
     MainLayoutComponent,
     MainPageComponent,
     ProductPageComponent,
-    CartPageComponent
+    CartPageComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    QuillModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   multi: true,
+    //   useClass: AuthInterceptor
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
