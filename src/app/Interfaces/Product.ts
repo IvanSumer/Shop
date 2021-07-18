@@ -5,6 +5,6 @@ export interface Product {
     info?:string;
     type?:string
     date?:Date;
-    productType: string
+    productType?: string
     
 }

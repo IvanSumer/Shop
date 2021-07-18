@@ -10,10 +10,14 @@ import { ProductService } from '../shared/product.service';
 export class ProductComponent implements OnInit {
 
   @Input() product
-  constructor() { }
+  constructor(private productServ: ProductService) { }
 
   ngOnInit(): void {
 
+  }
+
+  addToCart(product){
+     this.productServ.addToCart(product);
   }
 
 }

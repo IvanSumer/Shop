@@ -12,11 +12,12 @@ export class DashboardComponent implements OnInit {
 
   products
   prSub: Subscription
+  rmSub: Subscription
+  productName
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.prSub = this.productService.getProducts().subscribe(res =>{
-      console.log(res)
       this.products = res;
     })
   }
@@ -25,10 +26,14 @@ export class DashboardComponent implements OnInit {
     if(this.prSub){
       this.prSub.unsubscribe();
     }
+
+    if(this.rmSub){
+      this.rmSub.unsubscribe();
+    }
   }
 
   remove(id){
-     this.productService.remove(id).subscribe(() =>{
+     this.rmSub = this.productService.remove(id).subscribe(() =>{
       this.products = this.products.filter(prod=> prod.id != id)
      })
   }

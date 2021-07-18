@@ -28,10 +28,8 @@ export class LoginComponent implements OnInit {
   getUsers(){
     this.auth.getUsers().subscribe(response =>{
       this.users = response;
-      console.log(response);
    }, 
    error =>{
-     console.log(error);
    })
   }
 
@@ -54,13 +52,11 @@ export class LoginComponent implements OnInit {
     // 2. Use service to communicate with server
     
     this.auth.login(user).subscribe(response => {
-      console.log(response);
       this.form.reset
       this.router.navigate(['/admin', 'dashboard'])
       this.submitted = false
     },
     error => {
-      console.log(error);
       this.submitted = false
     });
     

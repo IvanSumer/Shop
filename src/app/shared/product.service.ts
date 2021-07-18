@@ -9,6 +9,8 @@ import {map} from 'rxjs/operators'
 })
 export class ProductService {
 
+
+  cartProducts: Product[] =[]
   constructor(private http: HttpClient) { }
 
 addProduct(product){
@@ -24,11 +26,16 @@ getProductById(id)  {
 }
 
 update(product){
-  this.http.patch('https://localhost:44306/api/Product/Update', product)
+  return this.http.patch('https://localhost:44306/api/Product', product)
 }
+
 
 remove(id){
   return this.http.delete(`https://localhost:44306/api/Product/${id}`)
+}
+
+addToCart(product){
+  this.cartProducts.push(product)
 }
 
 }

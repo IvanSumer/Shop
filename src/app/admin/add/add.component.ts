@@ -39,13 +39,11 @@ export class AddComponent implements OnInit {
      }
     
      this.productService.addProduct(product).subscribe(res =>{
-       console.log(res)
        this.submitted =false
        this.form.reset()
        this.router.navigate(['/'])
      },
      error =>{
-       console.log(error)
      })
     
    

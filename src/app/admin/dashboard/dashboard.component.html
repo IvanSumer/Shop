@@ -1,20 +1,25 @@
 <div *ngIf="products; else loading">
     <h2 class="text-center">Dashboard of products</h2>
+    <div class="form-control">
+        <input type="text" placeholder="Find a product..." [(ngModel)]="productName">
+    </div>
     <table>
         <thead class="bg-dark">
             <td>Id</td>
             <td>Product Type</td>
+            <td>Name</td>
             <td>Price</td>
             <td>Date of creation</td>
             <td>Open</td>
             <td>Delete</td>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products; let idx =index">
+            <tr *ngFor="let product of products | search: productName; let idx =index">
                 <td>{{idx + 1}}</td>
                 <td>{{product.productType}}</td>
+                <td>{{product.title}}</td>
                 <td>{{product.price}}</td>
-                <td>{{product.created | date}}</td>
+                <td>{{product.created | date: 'short'}}</td>
                 <td>
                     <button class="btn btn-dark" [routerLink]="['/admin','product', product.id, 'edit']">Open</button>
                 </td>

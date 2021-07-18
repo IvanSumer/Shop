@@ -10,6 +10,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from '../shared/auth.guard';
 import { QuillModule } from 'ngx-quill';
+import { SearchPipe } from '../shared/search.pipe';
 @NgModule({
     imports: [
         CommonModule,
@@ -36,7 +37,8 @@ import { QuillModule } from 'ngx-quill';
       AddComponent,
       EditComponent,
       DashboardComponent,
-      OrdersComponent
+      OrdersComponent,
+      SearchPipe
     ]
 })
 
